@@ -1,0 +1,25 @@
+camel: 1.0.0
+name: {{dashCase skillname}}
+title: {{skillname}}
+description: {{skillname}}
+inputs:
+  - name: params
+    title: Job Input
+    parameters:
+      - name: params
+        type: object
+        description: Input Params
+        required: true
+    routing:
+      all:
+        action: {{dashCase skillname}}
+        runtime: cortex/jobs
+        output: result
+outputs:
+  - name: result
+    title: Job result
+    parameters:
+      - name: result
+        type: object
+        description: Job Execution Logs
+        required: true
