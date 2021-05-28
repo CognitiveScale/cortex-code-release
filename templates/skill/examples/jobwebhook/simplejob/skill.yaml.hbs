@@ -1,0 +1,24 @@
+camel: 1.0.0
+name: {{dashCase skillname}}-simplejob
+title: This job just prints some messages
+description: This is a sample that prints some messages
+inputs:
+  - name: input
+    title: input
+    routing:
+      all:
+        action: {{dashCase skillname}}-simplejob
+        output: output
+        runtime: cortex/jobs
+outputs:
+  - name: output
+    title: output
+actions:
+  - name: default-action
+    description: {{skillname}} Action
+    image: {{repo.url}}/{{dashCase skillname}}-action
+    command: []
+    port: "8080"
+    type: daemon
+    scaleCount: 1
+    environmentVariables: ''
