@@ -1,5 +1,5 @@
 {
-    "name": "daemon",
-    "title": "Custom Daemon Skill",
+    "value": "daemon",
+    "name": "Custom Daemon Skill",
     "description": "A skill that runs as a Daemon"
 }

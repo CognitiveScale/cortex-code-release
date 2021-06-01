@@ -1,5 +1,5 @@
 {
-    "name": "job",
-    "title": "Custom Job Skill",
+    "value": "job",
+    "name": "Custom Job Skill",
     "description": "A skill that runs as a Job"
 }
