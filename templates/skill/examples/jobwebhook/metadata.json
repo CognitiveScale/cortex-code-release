@@ -1,5 +1,6 @@
 {
     "name": "jobwebhook",
     "title": "Job Web Hook Example",
-    "description": "An example job skill that uses webhooks"
+    "description": "An example job skill that uses webhooks",
+    "category": "examples"
 }

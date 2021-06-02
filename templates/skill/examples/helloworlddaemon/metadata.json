@@ -1,5 +1,6 @@
 {
     "name": "helloworlddaemon",
     "title": "Hello World Example",
-    "description": "An example 'Hello World' skill that runs as a Daemon"
+    "description": "An example 'Hello World' skill that runs as a Daemon",
+    "category": "examples"
 }
