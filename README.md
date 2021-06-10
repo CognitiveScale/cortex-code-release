@@ -1,4 +1,4 @@
-# cortex-code-templates
+# cortex-code-release
 
-This repository contains the code generator templates used to generate sample projects in the vs code extension, as well as the schema definitions for cortex resources.
+This repository contains the current release of the cortex vscode/che plugin.
 
