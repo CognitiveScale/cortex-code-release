@@ -7,16 +7,16 @@ inputs:
     title: input
     routing:
       all:
-        action: default-action
+        action: datagenerator-action
         output: output
         runtime: cortex/jobs
 outputs:
   - name: output
     title: output
 actions:
-  - name: default-action
-    description: {{skillname}} Action
-    image: {{repo.url}}/{{dashCase skillname}}-action
+  - name: datagenerator-action
+    description: {{skillname}} DataGenerator Action
+    image: {{repo.url}}/{{dashCase skillname}}-datagenerator-action
     command: []
     type: job
     scaleCount: 1

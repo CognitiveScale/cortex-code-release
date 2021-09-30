@@ -7,16 +7,16 @@ inputs:
     title: input
     routing:
       all:
-        action: default-action
+        action: dataconsumer-action
         output: output
         runtime: cortex/jobs
 outputs:
   - name: output
     title: output
 actions:
-  - name: default-action
-    description: {{skillname}} Action
-    image: {{repo.url}}/{{dashCase skillname}}-action
+  - name: dataconsumer-action
+    description: {{skillname}} DataConsumer Action
+    image: {{repo.url}}/{{dashCase skillname}}-dataconsumer-action
     command: []
     port: "8080"
     type: daemon
