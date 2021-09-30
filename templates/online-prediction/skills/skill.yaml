@@ -21,7 +21,7 @@ outputs:
       $ref: OnlinePredictResponse
 
 actions:
-  - name: {{skillname}}-online-prediction
+  - name: online-prediction
     description: {{skillname}} action 1
     image: {{repo.url}}/{{skillname}}-online-prediction
     command: []
