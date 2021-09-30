@@ -7,14 +7,14 @@ inputs:
     title: input
     routing:
       all:
-        action: dataconsumer-action
+        action: dataconsumer
         output: output
         runtime: cortex/jobs
 outputs:
   - name: output
     title: output
 actions:
-  - name: dataconsumer-action
+  - name: dataconsumer
     description: {{skillname}} DataConsumer Action
     image: {{repo.url}}/{{dashCase skillname}}-dataconsumer-action
     command: []

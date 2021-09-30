@@ -7,14 +7,14 @@ inputs:
     title: input
     routing:
       all:
-        action: datagenerator-action
+        action: datagenerator
         output: output
         runtime: cortex/jobs
 outputs:
   - name: output
     title: output
 actions:
-  - name: datagenerator-action
+  - name: datagenerator
     description: {{skillname}} DataGenerator Action
     image: {{repo.url}}/{{dashCase skillname}}-datagenerator-action
     command: []
