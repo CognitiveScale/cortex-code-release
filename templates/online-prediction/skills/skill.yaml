@@ -21,10 +21,10 @@ outputs:
       $ref: OnlinePredictResponse
 
 actions:
-  - name: default-action
+  - name: {{skillname}}-online-prediction
     description: {{skillname}} action 1
-    image: {{repo.url}}/{{skillname}}-action
-    command: ["python3", "predict/main.py"]
+    image: {{repo.url}}/{{skillname}}-online-prediction
+    command: []
     type: daemon
     port: "5000"    
     scaleCount: 1
