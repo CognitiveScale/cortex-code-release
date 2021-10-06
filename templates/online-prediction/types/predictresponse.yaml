@@ -1,0 +1,10 @@
+camel: 1.0.0
+name: OnlinePredictResponse
+title: Online Predict Response
+description: Represents a response of online prediction
+parameters:
+  - name: payload
+    type: array
+    description: Prediction Results
+    required: false
+    
