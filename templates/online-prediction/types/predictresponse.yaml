@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: OnlinePredictResponse
+name: OnlinePredictRsp
 title: Online Predict Response
 description: Represents a response of online prediction
 parameters:
