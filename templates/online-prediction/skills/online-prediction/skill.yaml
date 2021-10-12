@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: {{skillname}}
+name: online-prediction
 title: Online Prediction Skill Template
 description: Online Prediction Skill Template
 inputs:
@@ -22,8 +22,8 @@ outputs:
 
 actions:
   - name: online-prediction
-    description: {{skillname}} action 1
-    image: {{repo.url}}/{{skillname}}-online-prediction
+    description: online-prediction action 1
+    image: {{repo.url}}/online-prediction
     command: []
     type: daemon
     port: "5000"    
