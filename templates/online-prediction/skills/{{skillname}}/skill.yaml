@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: online-prediction
+name: {{skillname}}
 title: Online Prediction Skill Template
 description: Online Prediction Skill Template
 inputs:
@@ -10,7 +10,7 @@ inputs:
 
     routing:
       all:
-        action: online-prediction
+        action: {{skillname}}-online-prediction
         runtime: cortex/jobs
         output: response
 
@@ -21,9 +21,9 @@ outputs:
       $ref: OnlinePredictRsp
 
 actions:
-  - name: online-prediction
-    description: online-prediction action 1
-    image: {{repo.url}}/online-prediction
+  - name: {{skillname}}-online-prediction
+    description: {{skillname}}-online-prediction action 1
+    image: {{repo.url}}/{{skillname}}-online-prediction
     command: []
     type: daemon
     port: "5000"    
