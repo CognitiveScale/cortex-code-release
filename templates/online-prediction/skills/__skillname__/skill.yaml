@@ -10,7 +10,7 @@ inputs:
 
     routing:
       all:
-        action: {{skillname}}-online-prediction
+        action: {{skillname}}-action1
         runtime: cortex/jobs
         output: response
 
@@ -21,9 +21,9 @@ outputs:
       $ref: OnlinePredictRsp
 
 actions:
-  - name: {{skillname}}-online-prediction
-    description: {{skillname}}-online-prediction action 1
-    image: {{repo.url}}/{{skillname}}-online-prediction
+  - name: {{skillname}}-action1
+    description: {{skillname}} action 1
+    image: {{repo.url}}/{{skillname}}-action1
     command: []
     type: daemon
     port: "5000"    
