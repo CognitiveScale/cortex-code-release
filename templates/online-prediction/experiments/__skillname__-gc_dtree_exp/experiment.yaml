@@ -1,0 +1,5 @@
+camel: 1.0.0
+name: {{skillname}}-gc_dtree_exp
+title: Decision Tree model
+description: Decision Tree model
+modelId: {{skillname}}-german-credit-model

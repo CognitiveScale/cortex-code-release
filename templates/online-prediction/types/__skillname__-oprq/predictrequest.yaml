@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: OnlinePredictReq
+name: {{skillname}}-oprq
 title: Online Predict Request
 description: Represents a request of online prediction input
 parameters:

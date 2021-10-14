@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: OnlinePredictRsp
+name: {{skillname}}-oprs
 title: Online Predict Response
 description: Represents a response of online prediction
 parameters:
