@@ -6,7 +6,7 @@ inputs:
   - name: request
     title: Predict Request
     parameters:
-      $ref: OnlinePredictReq
+      $ref: {{skillname}}-oprq
 
     routing:
       all:
@@ -18,7 +18,7 @@ outputs:
   - name: response
     title: Predict Response
     parameters:
-      $ref: OnlinePredictRsp
+      $ref: {{skillname}}-oprs
 
 actions:
   - name: {{skillname}}-action1
