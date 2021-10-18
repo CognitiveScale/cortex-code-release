@@ -12,7 +12,7 @@ inputs:
         required: true
     routing:
       all:
-        action: default-action
+        action: {{skillname}}-action
         runtime: cortex/jobs
         output: result
 outputs:
