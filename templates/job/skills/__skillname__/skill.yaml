@@ -1,7 +1,7 @@
 camel: 1.0.0
-name: {{dashCase skillname}}
-title: {{skillname}}
-description: {{skillname}}
+name: {{skillname}}
+title: {{skillname}} Title
+description: {{skillname}} Description
 inputs:
   - name: params
     title: Job Input
@@ -24,8 +24,8 @@ outputs:
         description: Job Execution Logs
         required: true
 actions:
-  - name: default-action
-    description: {{skillname}} action 1
+  - name: {{skillname}}-action
+    description: {{skillname}} action
     image: {{repo.url}}/{{skillname}}-action
     command: []
     type: job
