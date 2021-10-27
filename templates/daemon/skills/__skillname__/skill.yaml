@@ -1,7 +1,7 @@
 camel: 1.0.0
-name: {{dashCase skillname}}
-title: {{skillname}}
-description: {{skillname}}
+name: {{skillname}}
+title: {{skillname}} Title
+description: {{skillname}} Description
 inputs:
   - name: request
     title: API Request
@@ -12,7 +12,7 @@ inputs:
         required: true
     routing:
       all:
-        action: default-action
+        action: {{skillname}}-action
         runtime: cortex/daemons
         output: response
 
@@ -45,7 +45,7 @@ properties:
     type: String
     defaultValue: 5000
 actions:
-  - name: default-action
+  - name: {{skillname}}-action
     description: {{skillname}} Action
     image: {{repo.url}}/{{skillname}}-action
     command: []
