@@ -26,7 +26,7 @@ inputs:
     title: input
     routing:
       all:
-        action: word-count-daemon
+        action: {{skillname}}-action
         output: output
         runtime: cortex/daemons
 outputs:
