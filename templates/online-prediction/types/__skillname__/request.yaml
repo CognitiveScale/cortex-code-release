@@ -1,0 +1,13 @@
+camel: 1.0.0
+name: {{skillname}}-oprq
+title: Online Predict Request
+description: Represents a request of online prediction input
+parameters:
+  - name: columns
+    type: array
+    description: Columns
+    required: true
+  - name: instances
+    type: array
+    description: Instances(2D array)
+    required: true

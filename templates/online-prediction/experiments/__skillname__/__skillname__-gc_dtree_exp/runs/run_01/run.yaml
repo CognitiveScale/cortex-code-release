@@ -1,0 +1,11 @@
+camel: 1.0.0
+name: {{skillname}}-gc_dtree_exp
+runId: run_01
+meta:
+  algo: DecisionTreeClassifier
+params:
+  category: Decision Tree
+  version: 1
+  SourceData: Upstream Server Data
+metrics:
+  accuracy: 0.68

@@ -1,0 +1,6 @@
+{
+    "name": "word-count-agent",
+    "title": "Word Counting Daemon",
+    "description": "An agent that counts words in text",
+    "category": "examples"
+}

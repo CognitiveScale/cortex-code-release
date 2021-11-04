@@ -1,0 +1,43 @@
+camel: 1.0.0
+name: {{skillname}}-word-count
+title: Word Count Daemon Skill
+description: A Word Counting Daemon Skill
+properties:
+  - name: daemon.method
+    title: Daemon method
+    description: method
+    required: true
+    type: String
+    defaultValue: POST
+  - name: daemon.path
+    title: Daemon path
+    description: path
+    required: true
+    type: String
+    defaultValue: invoke
+  - name: daemon.port
+    title: Daemon port
+    description: port
+    required: true
+    type: Number
+    defaultValue: 5000
+inputs:
+  - name: input
+    title: input
+    routing:
+      all:
+        action: {{skillname}}-action
+        output: output
+        runtime: cortex/daemons
+outputs:
+  - name: output
+    title: output
+actions:
+  - name: {{skillname}}-action
+    description: {{skillname}} action 
+    image: {{repo.url}}/{{skillname}}-action
+    command: []
+    type: daemon
+    port: "5000"    
+    scaleCount: 1
+    environmentVariables: ''

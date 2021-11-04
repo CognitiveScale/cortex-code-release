@@ -1,0 +1,23 @@
+camel: 1.0.0
+name: {{dashCase skillname}}-datagenerator
+title: Data generator job skill
+description: This skill demonstrates the use of a job skill
+inputs:
+  - name: input
+    title: input
+    routing:
+      all:
+        action: datagenerator
+        output: output
+        runtime: cortex/jobs
+outputs:
+  - name: output
+    title: output
+actions:
+  - name: datagenerator
+    description: {{skillname}} DataGenerator Action
+    image: {{repo.url}}/{{dashCase skillname}}-datagenerator-action
+    command: []
+    type: job
+    scaleCount: 1
+    environmentVariables: ""
