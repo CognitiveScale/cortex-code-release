@@ -43,3 +43,23 @@ Cortex skill that runs a background job.
    Skills that are deployed may be invoked (run) either independently or within an agent.
 
 For more details about how to build skills go to [Cortex Fabric Documentation - Development - Develop Skills](https://cognitivescale.github.io/cortex-fabric/docs/development/define-skills)
+
+
+#### Test the code locally
+To avoid using up your private registry space, it is good practice testing your code before pushing.
+
+Create Python virtual env.
+```shell
+python -m venv testvenv
+source testvenv/bin/activate
+pip install -r requirements.txt
+```
+
+Testing the job.
+```shell
+python ./main.py '{"payload":{"message":  "This is a test payload message"}}'
+````
+Response:
+```text
+{"message":  "This is a test payload message"}
+```

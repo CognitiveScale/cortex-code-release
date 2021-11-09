@@ -1,5 +1,5 @@
 {
     "payload": {
-        "text": "Hello Cortex World!"
+        "message":  "This is a test payload message"
     }
 }
