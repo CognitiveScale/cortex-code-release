@@ -12,7 +12,7 @@ inputs:
         required: true
     routing:
       all:
-        action: {{skillname}}-action
+        action: {{skillname}}
         runtime: cortex/daemons
         output: response
 
@@ -44,12 +44,19 @@ properties:
     required: true
     type: String
     defaultValue: 5000
+
 actions:
-  - name: {{skillname}}-action
-    description: {{skillname}} Action
-    image: {{repo.url}}/{{skillname}}-action
-    command: []
-    port: "5000"
-    type: daemon
-    scaleCount: 1
-    environmentVariables: ""
+  - name: {{skillname}}
+    actionType: daemon
+    docker: {{skillname}}:latest
+    environmentVariables: '"TEST"="value"'
+    command:
+      - uvicorn
+      - "main:app"
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "5000"
+      - --workers
+      - "2"
+    port: 5000

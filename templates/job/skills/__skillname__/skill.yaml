@@ -12,9 +12,10 @@ inputs:
         required: true
     routing:
       all:
-        action: {{skillname}}-action
+        action: {{skillname}}
         runtime: cortex/jobs
         output: result
+
 outputs:
   - name: result
     title: Job result
@@ -23,11 +24,9 @@ outputs:
         type: object
         description: Job Execution Logs
         required: true
+
 actions:
-  - name: {{skillname}}-action
-    description: {{skillname}} action
-    image: {{repo.url}}/{{skillname}}-action
-    command: []
-    type: job
-    scaleCount: 1
-    environmentVariables: ''
+  - name: {{skillname}}
+    actionType: job
+    docker: {{skillname}}:latest
+    environmentVariables: '"TEST"="value"'
