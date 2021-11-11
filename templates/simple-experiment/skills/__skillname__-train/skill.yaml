@@ -1,0 +1,32 @@
+camel: 1.0.0
+name: simple-exp-train
+title: simple-exp-train
+description: simple-exp-train
+inputs:
+  - name: params
+    title: Job Input
+    parameters:
+      - name: params
+        type: object
+        description: Input Params
+        required: true
+    routing:
+      all:
+        action  : simple-exp-train
+        runtime: cortex/jobs
+        output: result
+
+outputs:
+  - name: result
+    title: Job result
+    parameters:
+      - name: result
+        type: object
+        description: Job Execution Logs
+        required: true
+
+actions:
+  - name: simple-exp-train
+    actionType: job
+    docker: simple-exp-train:latest
+    environmentVariables: '"TEST"="value"'
