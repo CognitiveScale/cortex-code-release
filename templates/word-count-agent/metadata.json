@@ -1,6 +1,6 @@
 {
     "name": "word-count-agent",
-    "title": "Word Counting Daemon",
+    "title": "Word Counting Agent with one skill. Skill contains a daemon",
     "description": "An agent that counts words in text",
     "category": "examples"
 }
