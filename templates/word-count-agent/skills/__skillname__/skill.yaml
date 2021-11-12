@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: {{skillname}}-word-count
+name: {{skillname}}
 title: Word Count Daemon Skill
 description: A Word Counting Daemon Skill
 properties:
@@ -26,18 +26,25 @@ inputs:
     title: input
     routing:
       all:
-        action: {{skillname}}-action
+        action: {{skillname}}
         output: output
         runtime: cortex/daemons
 outputs:
   - name: output
     title: output
+
 actions:
-  - name: {{skillname}}-action
-    description: {{skillname}} action 
-    image: {{repo.url}}/{{skillname}}-action
-    command: []
-    type: daemon
-    port: "5000"    
-    scaleCount: 1
-    environmentVariables: ''
+  - name: {{skillname}}
+    actionType: daemon
+    docker: {{repo.url}}/{{skillname}}:latest
+    environmentVariables: '"TEST"="value"'
+    command:
+      - uvicorn
+      - "main:app"
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "5000"
+      - --workers
+      - "2"
+    port: 5000

@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: word-count-agent
+name: {{skillname}}-agent
 tags:
   - label: example
     value: example
@@ -41,5 +41,5 @@ mappings:
       output:
         signalId: a469818f-f7d0-41bf-8577-bde05136d6b8
 skills:
-  - skillName: word-count-daemon
+  - skillName: {{skillname}}
     refId: deef58fc-b698-4166-a0a9-41bc6d29537b

@@ -28,5 +28,5 @@ outputs:
 actions:
   - name: {{skillname}}
     actionType: job
-    docker: {{skillname}}:latest
+    docker: {{repo.url}}/{{skillname}}:latest
     environmentVariables: '"TEST"="value"'

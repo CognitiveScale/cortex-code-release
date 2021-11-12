@@ -48,7 +48,7 @@ properties:
 actions:
   - name: {{skillname}}
     actionType: daemon
-    docker: {{skillname}}:latest
+    docker: {{repo.url}}/{{skillname}}:latest
     environmentVariables: '"TEST"="value"'
     command:
       - uvicorn

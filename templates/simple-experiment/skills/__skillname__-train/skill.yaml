@@ -1,7 +1,7 @@
 camel: 1.0.0
-name: simple-exp-train
-title: simple-exp-train
-description: simple-exp-train
+name: {{skillname}}-train
+title: {{skillname}}-train
+description: {{skillname}}-train
 inputs:
   - name: params
     title: Job Input
@@ -12,7 +12,7 @@ inputs:
         required: true
     routing:
       all:
-        action  : simple-exp-train
+        action  : {{skillname}}-train
         runtime: cortex/jobs
         output: result
 
@@ -26,7 +26,7 @@ outputs:
         required: true
 
 actions:
-  - name: simple-exp-train
+  - name: {{skillname}}-train
     actionType: job
-    docker: simple-exp-train:latest
+    docker: {{repo.url}}/{{skillname}}-train:latest
     environmentVariables: '"TEST"="value"'

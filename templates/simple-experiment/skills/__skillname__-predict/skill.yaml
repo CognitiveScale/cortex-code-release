@@ -1,7 +1,7 @@
 camel: 1.0.0
-name: simple-exp-predict
-title: simple-exp-predict
-description: simple-exp-predict
+name: {{skillname}}-predict
+title: {{skillname}}-predict
+description: {{skillname}}-predict
 inputs:
   - name: request
     title: API Request
@@ -12,7 +12,7 @@ inputs:
         required: true
     routing:
       all:
-        action  : simple-exp-predict
+        action  : {{skillname}}-predict
         runtime: cortex/daemons
         output: response
 
@@ -46,9 +46,9 @@ properties:
     defaultValue: 5000
 
 actions:
-  - name: simple-exp-predict
+  - name: {{skillname}}-predict
     actionType: daemon
-    docker: simple-exp-predict:latest
+    docker: {{repo.url}}/{{skillname}}-predict:latest
     environmentVariables: '"TEST"="value"'
     command:
       - uvicorn
