@@ -2,6 +2,7 @@ camel: 1.0.0
 name: {{skillname}}-predict
 title: {{skillname}}-predict
 description: {{skillname}}-predict
+
 inputs:
   - name: request
     title: API Request
@@ -12,7 +13,7 @@ inputs:
         required: true
     routing:
       all:
-        action  : {{skillname}}-predict
+        action: {{skillname}}-predict
         runtime: cortex/daemons
         output: response
 

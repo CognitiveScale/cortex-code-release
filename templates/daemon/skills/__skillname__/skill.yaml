@@ -2,6 +2,7 @@ camel: 1.0.0
 name: {{skillname}}
 title: {{skillname}} Title
 description: {{skillname}} Description
+
 inputs:
   - name: request
     title: API Request
