@@ -48,7 +48,7 @@ properties:
 
 actions:
   - name: {{skillname}}-predict
-    actionType: daemon
+    type: daemon
     image: {{repo.url}}/{{skillname}}-predict
     environmentVariables: '"TEST"="value"'
     command:

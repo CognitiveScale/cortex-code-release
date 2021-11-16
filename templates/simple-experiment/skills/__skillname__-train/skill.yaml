@@ -28,6 +28,6 @@ outputs:
 
 actions:
   - name: {{skillname}}-train
-    actionType: job
+    type: job
     image: {{repo.url}}/{{skillname}}-train
     environmentVariables: '"TEST"="value"'
