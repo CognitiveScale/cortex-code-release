@@ -1,7 +1,7 @@
 camel: 1.0.0
-name: {{skillname}}
-title: {{skillname}} Title
-description: {{skillname}} Description
+name: {{skillname}}-train
+title: {{skillname}}-train
+description: {{skillname}}-train
 
 inputs:
   - name: request
@@ -13,7 +13,7 @@ inputs:
         required: true
     routing:
       all:
-        action: {{skillname}}
+        action: {{skillname}}-train
         runtime: cortex/jobs
         output: response
 
@@ -27,7 +27,7 @@ outputs:
         required: true
 
 actions:
-  - name: {{skillname}}
+  - name: {{skillname}}-train
     type: job
-    image: {{repo.url}}/{{skillname}}
+    image: {{repo.url}}/{{skillname}}-train
     environmentVariables: '"TEST"="value"'

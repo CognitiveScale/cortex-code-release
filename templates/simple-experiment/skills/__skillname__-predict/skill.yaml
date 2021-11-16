@@ -1,7 +1,7 @@
 camel: 1.0.0
-name: {{skillname}}
-title: Word Count Daemon Skill
-description: A Word Counting Daemon Skill
+name: {{skillname}}-predict
+title: {{skillname}}-predict
+description: {{skillname}}-predict
 
 inputs:
   - name: request
@@ -13,7 +13,7 @@ inputs:
         required: true
     routing:
       all:
-        action: {{skillname}}
+        action: {{skillname}}-predict
         runtime: cortex/daemons
         output: response
 
@@ -47,9 +47,9 @@ properties:
     defaultValue: 5000
 
 actions:
-  - name: {{skillname}}
+  - name: {{skillname}}-predict
     type: daemon
-    image: {{repo.url}}/{{skillname}}
+    image: {{repo.url}}/{{skillname}}-predict
     environmentVariables: '"TEST"="value"'
     command:
       - uvicorn

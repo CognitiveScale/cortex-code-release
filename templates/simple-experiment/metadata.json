@@ -1,0 +1,5 @@
+{
+    "name": "Simple Experiment",
+    "title": "Two Skills. One sample experiment.",
+    "description": "This template contains two skills. A job that trains a model and a daemon that predicts."
+}
