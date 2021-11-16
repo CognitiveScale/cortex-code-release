@@ -9,7 +9,7 @@ app = FastAPI()
 # GET /hello : A health check. Returns a basic hello message. No payload is needed
 @app.get('/hello')
 def hello():
-    return {'message': 'Hello from word-count-daemon GET'}
+    return {'message': 'Hello from __skillname__ GET'}
 
 
 # POST /invoke : Returns the word count of the text in the payload.
