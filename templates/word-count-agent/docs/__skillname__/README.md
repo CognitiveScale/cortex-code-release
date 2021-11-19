@@ -8,15 +8,20 @@ In the Example an Action with the logic that is executed is created. It is encap
 
 
 ## Included Files to Review
-- `skills/` - The directory that houses the Skills
-    - `word-count-daemon/` - The contents of the word-count-daemon action
-        - `Dockerfile` - Builds the Docker image the action
-        - `main.py` - Code for Cortex daemon
-        - `requirements.txt` - Dependencies and libraries
-        - `skill.yaml` - Skill definition and action mapping
-- `agent.yaml` - Agent definition and Skill mapping
-- `deploy.sh` - Builds and pushes images, deploys actions, saves Skills and saves Agents.
-- `README.md` - Provides the objectives, requirements, and instructions for generating and deploying the Skill.
+- `docs/` - The directory that houses the Skills' READMEs
+    - `__skillname__/`: The directory that houses the __skillname__ Skill's README
+        - `README.md`: Provides the objectives, requirements, and instructions for generating and deploying the Skill.
+- `skills/`: The directory that houses the Skills
+    - `__skillname__/`: The directory that houses the __skillname__ Skill's assets
+        - `actions/`: The directory that houses the __skillname__ Skill's Actions
+            - `__skillname__/`: The contents of the __skillname__ action
+                - `Dockerfile`: Builds the Docker image the action
+                - `main.py`: Code for Cortex daemon
+                - `requirements.txt`: Dependencies and libraries
+        - `invoke/`: Contains the payloads, organized by Skill input name, used to invoke the __skillname__ Skill
+            - `request/`: Contains payload files used to invoke the Skill
+                - `message.json`: JSON payload used to invoke the Skill
+            - `skill.yaml`: __skillname__ Skill definition and Action mapping
 
 
 ## Requirements
