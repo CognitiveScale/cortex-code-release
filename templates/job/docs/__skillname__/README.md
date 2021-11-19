@@ -1,10 +1,6 @@
-# Custom Job Skill
+# __skillname__ Job Skill
 
 Cortex Skill that runs a background job.
-
-# Custom Daemon Skill
-
-A system generated Skill based on the custom job Skill template. This job Skill echos the `message` provided in the payload.
 
 
 ## Files Generated

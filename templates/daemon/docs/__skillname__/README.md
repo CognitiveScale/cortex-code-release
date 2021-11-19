@@ -1,4 +1,4 @@
-# Custom Daemon Skill
+# __skillname__ Daemon Skill
 
 A system generated Skill based on the custom daemon Skill template. This daemon Skill echos the `message` provided in the payload.
 
