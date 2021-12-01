@@ -1,4 +1,4 @@
-name: {{skillname}}-german-credit-model
+name: {{skillname}}-german-credit
 source: CS
 tags:
   - label: german-credit
