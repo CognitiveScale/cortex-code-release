@@ -9,19 +9,19 @@ In the Example an Action with the logic that is executed is created. It is encap
 
 ## Included Files to Review
 - `docs/` - The directory that houses the Skills' READMEs
-    - `__skillname__/`: The directory that houses the __skillname__ Skill's README
+    - `{{skillname}}/`: The directory that houses the {{skillname}} Skill's README
         - `README.md`: Provides the objectives, requirements, and instructions for generating and deploying the Skill.
 - `skills/`: The directory that houses the Skills
-    - `__skillname__/`: The directory that houses the __skillname__ Skill's assets
-        - `actions/`: The directory that houses the __skillname__ Skill's Actions
-            - `__skillname__/`: The contents of the __skillname__ action
+    - `{{skillname}}/`: The directory that houses the {{skillname}} Skill's assets
+        - `actions/`: The directory that houses the {{skillname}} Skill's Actions
+            - `{{skillname}}/`: The contents of the {{skillname}} action
                 - `Dockerfile`: Builds the Docker image the action
                 - `main.py`: Code for Cortex daemon
                 - `requirements.txt`: Dependencies and libraries
-        - `invoke/`: Contains the payloads, organized by Skill input name, used to invoke the __skillname__ Skill
+        - `invoke/`: Contains the payloads, organized by Skill input name, used to invoke the {{skillname}} Skill
             - `request/`: Contains payload files used to invoke the Skill
                 - `message.json`: JSON payload used to invoke the Skill
-            - `skill.yaml`: __skillname__ Skill definition and Action mapping
+            - `skill.yaml`: {{skillname}} Skill definition and Action mapping
 
 
 ## Requirements
