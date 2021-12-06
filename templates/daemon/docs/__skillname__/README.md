@@ -6,8 +6,8 @@ A system generated Skill based on the custom daemon Skill template.
 
 ## Files Generated
 - `docs/` - The directory that houses the Skills' READMEs
-    - `{{skillname}}/`: The directory that houses the {{skillname}} Skill's README
-      - `README.md`: Provide the objectives, requirements, and instructions for generating and deploying the Skill here.
+  - `{{skillname}}/`: The directory that houses the {{skillname}} Skill's README
+    - `README.md`: Provide the objectives, requirements, and instructions for generating and deploying the Skill here.
 - `skills/`: The directory that houses the Skills
   - `{{skillname}}/`: The directory that houses the {{skillname}} Skill's assets
     - `actions/`: The directory that houses the {{skillname}} Skill's Actions
@@ -17,7 +17,7 @@ A system generated Skill based on the custom daemon Skill template.
         - `requirements.txt`: List all the dependencies and libraries needed for this Skill
     - `invoke/`: Contains the payloads, organized by Skill input name, used to invoke the {{skillname}} Skill
       - `request/`: Contains payload files used to invoke the Skill
-          - `message.json`: Write a test JSON payload to invoke the Skill
+        - `message.json`: Write a test JSON payload to invoke the Skill
       - `skill.yaml`: Define {{skillname}} Skill definition and map Actions here
 
 
