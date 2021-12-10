@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: {{dashCase skillname}}-datagenerator
+name: {{skillname}}-datagenerator
 title: Data generator job skill
 description: This skill demonstrates the use of a job skill
 inputs:
@@ -16,7 +16,7 @@ outputs:
 actions:
   - name: datagenerator
     description: {{skillname}} DataGenerator Action
-    image: {{repo.url}}/{{dashCase skillname}}-datagenerator-action
+    image: {{repo.url}}/{{skillname}}-datagenerator-action
     command: []
     type: job
     scaleCount: 1

@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: {{dashCase skillname}}
+name: {{skillname}}
 title: {{skillname}} Title
 description: {{skillname}} Description
 

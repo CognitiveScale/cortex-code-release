@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: {{dashCase skillname}}-webhook
+name: {{skillname}}-webhook
 title: Post the payload to a webhook
 description: |
   This skill takes the payload provided and POSTs it to a webhook.
@@ -15,7 +15,7 @@ inputs:
     title: input
     routing:
       all:
-        action: {{dashCase skillname}}-webhook
+        action: {{skillname}}-webhook
         output: output
         runtime: cortex/jobs
 outputs:
@@ -24,7 +24,7 @@ outputs:
 actions:    
   - name: default-action
     description: {{skillname}} Action
-    image: {{repo.url}}/{{dashCase skillname}}-action
+    image: {{repo.url}}/{{skillname}}-action
     command: []
     port: "8080"
     type: daemon
