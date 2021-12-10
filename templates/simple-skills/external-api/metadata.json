@@ -1,0 +1,5 @@
+{
+    "name": "external-api",
+    "title": "TEMPLATE: Custom External API Skill",
+    "description": "A Skill template that runs as an external API"
+}
