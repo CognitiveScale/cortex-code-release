@@ -33,26 +33,6 @@ Please use the above links for more information on how to continue building, pus
 > - `invoke/request/message.json`
 
 
-## Test the code locally
-
-To avoid filling your private registry, testing your code prior to deployment is recommended. Here's a way to do that.
-
-### Create Python virtual env
-```shell
-python -m venv testvenv
-source testvenv/bin/activate
-pip install -r requirements.txt
-```
-
-### Test the Skill
-```shell
-python ./main.py '{"payload":{"message":  "This is a test payload message"}}'
-````
-Response:
-```text
-{"message":  "This is a test payload message"}
-```
-
 ## Documentation
 - [Cortex Fabric Documentation - Development - Develop Skills](https://cognitivescale.github.io/cortex-fabric/docs/development/define-skills)
 - [Skill Elements](https://cognitivescale.github.io/cortex-fabric/docs/build-skills/define-skills#skill-elements)
