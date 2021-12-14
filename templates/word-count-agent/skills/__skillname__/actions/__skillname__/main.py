@@ -1,7 +1,7 @@
 """
 Copyright (c) 2021. Cognitive Scale Inc. All rights reserved.
 
-Licensed under CognitiveScale Template/Example Code [License](https://cognitivescale.github.io/cortex-code-templates/LICENSE.md)
+Licensed under CognitiveScale Template/Example Code [License](https://github.com/CognitiveScale/cortex-code-templates/blob/main/LICENSE.md)
 """
 
 # Need to import packages to handle json and running the daemon
