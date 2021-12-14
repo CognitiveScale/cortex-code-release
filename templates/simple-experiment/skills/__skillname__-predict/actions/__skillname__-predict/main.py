@@ -1,3 +1,9 @@
+"""
+Copyright (c) 2021. Cognitive Scale Inc. All rights reserved.
+
+Licensed under CognitiveScale Template/Example Code [License](https://cognitivescale.github.io/cortex-code-templates/LICENSE.md)
+"""
+
 from cortex import Cortex
 from fastapi import FastAPI
 

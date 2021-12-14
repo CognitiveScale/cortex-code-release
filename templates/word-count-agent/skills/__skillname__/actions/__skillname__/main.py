@@ -1,3 +1,9 @@
+"""
+Copyright (c) 2021. Cognitive Scale Inc. All rights reserved.
+
+Licensed under CognitiveScale Template/Example Code [License](https://cognitivescale.github.io/cortex-code-templates/LICENSE.md)
+"""
+
 # Need to import packages to handle json and running the daemon
 import json
 from fastapi import FastAPI
