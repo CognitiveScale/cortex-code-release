@@ -21,7 +21,7 @@ In the Example an Action with the logic that is executed is created. It is encap
         - `invoke/`: Contains the payloads, organized by Skill input name, used to invoke the {{skillname}} Skill
             - `request/`: Contains payload files used to invoke the Skill
                 - `message.json`: JSON payload used to invoke the Skill
-            - `skill.yaml`: {{skillname}} Skill definition and Action mapping
+        - `skill.yaml`: {{skillname}} Skill definition and Action mapping
 
 
 ## Requirements
