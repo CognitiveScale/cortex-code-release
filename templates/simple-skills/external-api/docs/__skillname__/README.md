@@ -14,7 +14,7 @@ A system generated Skill based on the custom external API Skill template. This s
     - `invoke/`: Contains the payloads, organized by Skill input name, used to invoke the {{skillname}} Skill
       - `request/`: Contains payload files used to invoke the Skill
         - `message.json`: Write a test JSON payload to invoke the Skill
-      - `skill.yaml`: Define {{skillname}} Skill definition and map Actions here
+    - `skill.yaml`: Define {{skillname}} Skill definition and map Actions here
 
 
 ## Generate the Skill
