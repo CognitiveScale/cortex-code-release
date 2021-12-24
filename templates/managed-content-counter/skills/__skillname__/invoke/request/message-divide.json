@@ -1,0 +1,7 @@
+{
+    "payload": {
+        "key": "{{skillname}}-value",
+        "modifier": "5",
+        "command": "divide"
+    }
+}

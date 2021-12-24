@@ -1,0 +1,5 @@
+{
+    "name": "Managed Content Counter Example with Two Skills",
+    "title": "EXAMPLE: Managed Content Counter with Two Skills",
+    "description": "This example contains two Skills. A daemon Skill that increments a numerical value in Managed Content and a job Skill that returns the value."
+}

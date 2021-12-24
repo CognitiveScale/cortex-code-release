@@ -1,0 +1,33 @@
+camel: 1.0.0
+name: {{skillname}}-view
+title: {{skillname}}-view Title
+description: {{skillname}}-view Description
+
+inputs:
+  - name: request
+    title: Job Request
+    parameters:
+      - name: params
+        type: object
+        description: Request Parameters
+        required: true
+    routing:
+      all:
+        action: {{skillname}}-view
+        runtime: cortex/jobs
+        output: response
+
+outputs:
+  - name: response
+    title: Job Response
+    parameters:
+      - name: result
+        type: object
+        description: Job Response
+        required: true
+
+actions:
+  - name: {{skillname}}-view
+    type: job
+    image: {{skillname}}-view
+    environmentVariables: '"TEST"="value"'
