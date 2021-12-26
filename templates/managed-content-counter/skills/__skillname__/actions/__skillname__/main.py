@@ -22,26 +22,34 @@ def run(request_body: dict):
         # Create ManagedContentClient.
         content_client = ManagedContentClient(url=url, token=token, project=project_id)
         key = payload['key']
-        modifier = payload['modifier']
+        modifier = int(payload['modifier'])
+        operator = payload['command']
+
+        # Upload managed content with 0 value if key doesnt exist
+        if not content_client.exists(key, project_id):
+            content_client.upload(key=key, project=project_id, stream_name=key, stream="0",
+                                  content_type="application/octet-stream")
 
         # Download current value from managed content.
-        current_value = content_client.download(key=key, project=project_id).data
-        modified_value = current_value
-
+        current_value = int(content_client.download(key=key, project=project_id).data)
+        
         # Calculate modified_value
-        if payload['command'] == 'add':
+        if operator == '+':
             modified_value = current_value + modifier
-        elif payload['command'] == 'subtract':
+        elif operator == '-':
             modified_value = current_value - modifier
-        elif payload['command'] == 'multiply':
+        elif operator == '*':
             modified_value = current_value * modifier
-        elif payload['command'] == 'divide':
+        elif operator == '/':
             modified_value = current_value / modifier
         else:
-            return {'payload': {"message": "Invalid command. Valid commands: `add`, `subtract`, `multiply`, `divide`."}}
+            return {'payload': {"message": "Invalid command. Valid commands: `+`, `-`, `*`, `/`."}}
     else:
         return {'payload': {"message": "No payload given"}}
 
-    operators = {"add": "+", "subtract": "-", "multiply": "×", "divide": "/"}
-    return {'payload': {"statement": f'{current_value}{operators["command"]}{modifier}={modified_value}',
-                        "message": f'`{modified_value}` saved in key {key}'}}
+    # Upload modified_value to managed content
+    content_client.upload(key=key, project=project_id, stream_name=key, stream=str(modified_value),
+                                    content_type="application/octet-stream")
+
+    return {'payload': {"statement": f'{current_value}{payload["command"]}{modifier}={modified_value}',
+                        "message": f'{modified_value} saved in key {key}'}}

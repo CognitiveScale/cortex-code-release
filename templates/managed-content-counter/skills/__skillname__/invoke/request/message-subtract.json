@@ -1,7 +1,7 @@
 {
     "payload": {
-        "key": "{{skillname}}-value",
+        "key": "mc-counter-value",
         "modifier": "5",
-        "command": "add"
+        "command": "-"
     }
 }
