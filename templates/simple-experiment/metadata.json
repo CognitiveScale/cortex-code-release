@@ -1,5 +1,6 @@
 {
     "name": "Simple Experiment",
-    "title": "EXAMPLE: Two Skills. One sample experiment.",
-    "description": "This example contains two skills. A job that trains a model and a daemon that predicts."
+    "title": "Two Skills. One sample experiment.",
+    "description": "This example contains two skills. A job that trains a model and a daemon that predicts.",
+    "tags": ["example", "experiment"]
 }

@@ -1,5 +1,6 @@
 {
     "name": "daemon",
-    "title": "TEMPLATE: Custom Daemon Skill",
-    "description": "A Skill template that runs as a Daemon"
+    "title": "Custom Daemon Skill",
+    "description": "A Skill template that runs as a Daemon",
+    "tags": ["template", "daemon"]
 }
