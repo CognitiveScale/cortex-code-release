@@ -1,5 +1,6 @@
 {
     "name": "job",
-    "title": "TEMPLATE: Custom Job Skill",
-    "description": "A Skill template that runs as a Job"
+    "title": "Custom Job Skill",
+    "description": "A Skill template that runs as a Job",
+    "tags": ["template", "job"]
 }
