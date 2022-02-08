@@ -1,0 +1,5 @@
+{
+  "payload":{
+    "command":"upload", "key":"{{skillname}}-content", "content":"I am here"
+  }
+}

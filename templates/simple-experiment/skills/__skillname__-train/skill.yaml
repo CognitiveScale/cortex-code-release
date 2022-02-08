@@ -1,0 +1,33 @@
+camel: 1.0.0
+name: {{skillname}}-train
+title: {{skillname}}-train
+description: {{skillname}}-train
+
+inputs:
+  - name: request
+    title: Job Request
+    parameters:
+      - name: params
+        type: object
+        description: Request Parameters
+        required: true
+    routing:
+      all:
+        action: {{skillname}}-train
+        runtime: cortex/jobs
+        output: response
+
+outputs:
+  - name: response
+    title: Job Response
+    parameters:
+      - name: result
+        type: object
+        description: Job Response
+        required: true
+
+actions:
+  - name: {{skillname}}-train
+    type: job
+    image: {{repo.url}}/{{skillname}}-train
+    environmentVariables: '"TEST"="value"'

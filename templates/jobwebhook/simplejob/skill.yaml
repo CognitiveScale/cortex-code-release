@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: {{dashCase skillname}}-simplejob
+name: {{skillname}}-simplejob
 title: This job just prints some messages
 description: This is a sample that prints some messages
 inputs:
@@ -7,7 +7,7 @@ inputs:
     title: input
     routing:
       all:
-        action: {{dashCase skillname}}-simplejob
+        action: {{skillname}}-simplejob
         output: output
         runtime: cortex/jobs
 outputs:
@@ -16,7 +16,7 @@ outputs:
 actions:
   - name: default-action
     description: {{skillname}} Action
-    image: {{repo.url}}/{{dashCase skillname}}-action
+    image: {{repo.url}}/{{skillname}}-action
     command: []
     port: "8080"
     type: daemon

@@ -1,5 +1,5 @@
 camel: 1.0.0
-name: {{dashCase skillname}}-dataconsumer
+name: {{skillname}}-dataconsumer
 title: Data Consumer job skill
 description: ...
 inputs:
@@ -16,7 +16,7 @@ outputs:
 actions:
   - name: dataconsumer
     description: {{skillname}} DataConsumer Action
-    image: {{repo.url}}/{{dashCase skillname}}-dataconsumer-action
+    image: {{repo.url}}/{{skillname}}-dataconsumer-action
     command: []
     port: "8080"
     type: daemon
