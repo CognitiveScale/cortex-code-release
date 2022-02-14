@@ -29,5 +29,5 @@ outputs:
 actions:
   - name: {{skillname}}-train
     type: job
-    image: {{repo.url}}/{{skillname}}-train
+    image: {{skillname}}-train
     environmentVariables: '"TEST"="value"'

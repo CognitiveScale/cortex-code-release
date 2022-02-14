@@ -1,5 +1,0 @@
-cortex-python
-pymongo[srv]
-logzero
-fastapi
-uvicorn
