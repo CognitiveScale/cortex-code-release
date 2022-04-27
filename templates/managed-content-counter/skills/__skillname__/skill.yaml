@@ -49,7 +49,7 @@ properties:
 actions:
   - name: {{skillname}}
     type: daemon
-    image: {{repo.url}}/{{skillname}}
+    image: {{skillname}}
     environmentVariables: '"TEST"="value"'
     command:
       - uvicorn

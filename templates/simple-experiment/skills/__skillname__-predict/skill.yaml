@@ -49,7 +49,7 @@ properties:
 actions:
   - name: {{skillname}}-predict
     type: daemon
-    image: {{repo.url}}/{{skillname}}-predict
+    image: {{skillname}}-predict
     environmentVariables: '"TEST"="value"'
     command:
       - uvicorn

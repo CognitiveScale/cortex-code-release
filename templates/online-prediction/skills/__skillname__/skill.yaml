@@ -23,7 +23,7 @@ outputs:
 actions:
   - name: {{skillname}}-action
     description: {{skillname}} action 
-    image: {{repo.url}}/{{skillname}}-action
+    image: {{skillname}}-action
     command: []
     type: daemon
     port: "5000"    
