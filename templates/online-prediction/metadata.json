@@ -2,5 +2,6 @@
     "name": "online-prediction",
     "title": "Online Prediction Example",
     "description": "An Online Prediction Example",
-    "tags": ["example", "prediction", "training", "experiment"]
+    "tags": ["example", "prediction", "training", "experiment"],
+    "enabled": true
 }
