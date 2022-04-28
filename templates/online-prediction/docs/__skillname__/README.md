@@ -1,6 +1,6 @@
-### Online Prediction Skill
+# Online Prediction Skill
 
-Long running Cortex skill serving REST API prediction requests
+Long running Cortex skill serving REST API prediction requests for an example model
 
 Note:
 > This project assumes a `fast api server` with one endpoint `/invoke` that is run with the Uvicorn python3 binary; you may change to another framework or language.
