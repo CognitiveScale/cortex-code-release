@@ -3,12 +3,7 @@
 This workspace template demonstrates a simple job skill skeleton that simply prints out the job payload when invoked.
 
 ## Files Generated
-- `docs/{{skillname}}/README.md`: Provide the objectives, requirements, and instructions for the Skill here.
-- `skills/{{skillname}}/actions/{{skillname}}/Dockerfile`: Modify this to build the Docker image for the action
-  `skills/{{skillname}}/actions/{{skillname}}/main.py`: Modify the code in this file for your Cortex job
-  `skills/{{skillname}}/actions/{{skillname}}/requirements.txt`: List all the dependencies and libraries needed for this Skill
-  `skills/{{skillname}}/actions/{{skillname}}/invoke/request/message.json`: A test JSON payload to invoke the Skill
-  `skills/{{skillname}}/actions/{{skillname}}/skill.yaml`: Skill definition for the job
+{{ generatedFiles }}
 
 ## Building and Publishing the Skill
 
