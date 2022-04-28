@@ -2,7 +2,7 @@
 
 This workspace template demonstrates a simple daemon skill skeleton that simply returns the payload when invoked.
 
-This skill was generated from template `{{ template.name }}`
+This skill was generated from template `{{ template.path }}`
 
 ## Files Generated
 {{ generatedFiles }}
