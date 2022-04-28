@@ -11,3 +11,5 @@ In order to build the job skill Docker image, simply select "Build Skills" from 
 
 Once the skill is built, you can publish it the same way, by selecting "Publish".
 
+-------------------------------------------------------------------
+###### This skill was generated from template `{{ template.path }}`
