@@ -2,8 +2,6 @@
 
 This workspace template demonstrates a simple daemon skill skeleton that simply returns the payload when invoked.
 
-This skill was generated from template `{{ template.path }}`
-
 ## Files Generated
 {{ generatedFiles }}
 
@@ -13,3 +11,4 @@ In order to build the daemon skill Docker image, simply select "Build Skills" fr
 
 Once the skill is built, you can publish it the same way, by selecting "Publish".
 
+###### This skill was generated from template `{{ template.path }}`
