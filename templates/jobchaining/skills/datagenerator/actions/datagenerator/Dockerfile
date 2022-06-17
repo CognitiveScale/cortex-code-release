@@ -1,4 +1,4 @@
-FROM python:3.8.3-alpine
+FROM c12e/cortex-python-lib:fabric6
 WORKDIR /app
 COPY requirements.txt /app
 COPY *.py /app
