@@ -24,7 +24,7 @@ actions:
   - name: {{skillname}}-action
     description: {{skillname}} action 
     image: {{skillname}}-action
-    command: []
+    command: ["python3", "predict/main.py"]
     type: daemon
     port: "5000"    
     scaleCount: 1
