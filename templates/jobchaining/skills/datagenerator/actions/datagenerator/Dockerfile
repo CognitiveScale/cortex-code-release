@@ -1,4 +1,4 @@
-FROM c12e/cortex-python-lib:fabric6
+FROM c12e/cortex-python-lib:latest-develop
 WORKDIR /app
 COPY requirements.txt /app
 COPY *.py /app

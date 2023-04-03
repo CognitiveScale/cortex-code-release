@@ -1,4 +1,4 @@
-FROM c12e/cortex-python-lib:fabric6
+FROM c12e/cortex-python-lib:latest-develop
 ADD . /app
 WORKDIR /app
 RUN pip install -r requirements.txt

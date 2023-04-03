@@ -6,7 +6,7 @@ Licensed under CognitiveScale Template/Example Code [License](https://github.com
 
 import json
 import sys
-from cortex.content import ManagedContentClient
+from cortex import Cortex
 
 
 # The starting point for the job
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         project_id = payload.get('projectId', request_body['projectId'])
 
         # Create ManagedContentClient.
-        content_client = ManagedContentClient(url=url, token=token, project=project_id)
+        content_client = Cortex.client(api_endpoint=url, token=token, project=project_id).content
         key = payload['key']
 
         if payload['command'] == 'download':

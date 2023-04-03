@@ -5,7 +5,7 @@ Licensed under CognitiveScale Template/Example Code [License](https://github.com
 """
 
 from fastapi import FastAPI
-from cortex.content import ManagedContentClient
+from cortex import Cortex
 
 app = FastAPI()
 
@@ -19,8 +19,7 @@ def run(request_body: dict):
     if payload:
         project_id = payload.get('projectId', request_body['projectId'])
 
-        # Create ManagedContentClient.
-        content_client = ManagedContentClient(url=url, token=token, project=project_id)
+        content_client = Cortex.client(api_endpoint=url, token=token, project=project_id).content
         key = payload['key']
         modifier = int(payload['modifier'])
         operator = payload['command']

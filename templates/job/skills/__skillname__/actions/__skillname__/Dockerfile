@@ -1,4 +1,4 @@
-FROM c12e/cortex-python-lib:fabric6
+FROM c12e/cortex-python-lib:latest-develop
 
 COPY --from=redboxoss/scuttle:latest /scuttle /bin/scuttle
 ENV ENVOY_ADMIN_API=http://localhost:15000
