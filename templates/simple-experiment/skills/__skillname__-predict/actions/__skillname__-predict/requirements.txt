@@ -1,4 +1,4 @@
-cortex-python
+cortex-python==6.3.1a1
 fastapi
 uvicorn
 scikit-learn

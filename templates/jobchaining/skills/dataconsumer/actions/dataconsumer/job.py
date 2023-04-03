@@ -4,7 +4,6 @@ Copyright (c) 2020. Cognitive Scale Inc. All rights reserved.
 Licensed under CognitiveScale Example Code [License](https://cognitivescale.github.io/cortex-fabric-examples/LICENSE.md)
 """
 from cortex import Cortex
-from cortex.content import ManagedContentClient
 import pandas as pd
 import sys
 import json
@@ -24,10 +23,9 @@ def process(params):
         content_key = payload['datafileKey']
     print(f'Fetching datafile from managed content: {content_key}')
     # use the `client` instance to use Cortex client libraries
-    content_client = ManagedContentClient(client);
     # This is streaming the records to Cortex's managed content
     # if this was called as part of an agent
-    content = content_client.download(content_key)
+    content = client.content.download(content_key)
     df = pd.read_json(content, lines=True)
     counts = df['color'].value_counts()
     print(f'{counts.to_json()}')

@@ -9,6 +9,7 @@ import json
 import pickle
 import numpy as np
 from cortex import Cortex
+from cortex.experiment import Experiment
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 
@@ -42,7 +43,7 @@ if __name__ == '__main__':
 
     # Create Cortex client and create experiment
     client = Cortex.client(api_endpoint=api_endpoint, project=project, token=token)
-    experiment = client.experiment(experiment_name)
+    experiment = Experiment(client.experiments.get_experiment(experiment_name), client.experiments)
 
     # Upload model to experiment run in Cortex
     model = open(local_pickle_file, "rb")

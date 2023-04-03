@@ -9,6 +9,7 @@ import logging
 import numpy as np
 import pandas as pd
 from cortex import Cortex
+from cortex.experiment import Experiment
 
 from predict.request_models import InvokeRequest
 
@@ -27,7 +28,7 @@ def load_model(api_endpoint: str, token: str, project_id: str, experiment_name: 
     # Load Model from the experiment run
     logging.info("Loading model artifacts from experiment run...")
     try:
-        experiment = client.experiment(experiment_name)
+        experiment = Experiment(client.experiments.get_experiment(experiment_name), client.experiments)
         run = experiment.get_run(run_id) if run_id else experiment.last_run()
         model = run.get_artifact('model')
     except Exception as e:

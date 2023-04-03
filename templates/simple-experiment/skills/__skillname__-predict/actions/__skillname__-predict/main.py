@@ -5,6 +5,7 @@ Licensed under CognitiveScale Template/Example Code [License](https://github.com
 """
 
 from cortex import Cortex
+from cortex.experiment import Experiment
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -21,7 +22,7 @@ def run(request_body: dict):
 
     # Create Cortex client and get experiment
     client = Cortex.client(api_endpoint=api_endpoint, project=project, token=token)
-    experiment = client.experiment(experiment_name)
+    experiment = Experiment(client.experiments.get_experiment(experiment_name), client.experiments)
 
     # Get model from last experiment run
     exp_run = experiment.last_run()
