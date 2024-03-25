@@ -1,0 +1,202 @@
+version: 2
+sources:
+  - name: default
+    tables:
+      - name: bronze
+        external:
+          location: '{{ var("bronze-location") }}'
+          using: delta
+        tests:
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 7
+          - dbt_expectations.expect_table_columns_to_match_set:
+              column_list: [ "key", "value", "topic", "partition", "offset",
+                             "timestamp", "timestampType"]
+        columns:
+          - name: key
+            description: "Kafka key"
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: string
+          - name: value
+            description: "Kafka value"
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: string
+          - name: topic
+            description: "Kafka topic"
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: string
+          - name: partition
+            description: "Topic Partition"
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: int
+          - name: offset
+            description: "Offset"
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: bigint
+          - name: timestamp
+            description: "Timestamp"
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: timestamp
+          - name: timestampType
+            description: "Timestamp Type"
+            tests:
+              - dbt_expectations.expect_column_to_exist
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: int
+models:
+  - name: silver
+    config:
+      location_root: '{{ var("path-silver") }}'
+      alias: '{{ var("alias-silver") }}'
+      materialized: 'incremental'
+      incremental_strategy: 'merge'
+      file_format: 'delta'
+    description: "Silver table model"
+    tests:
+      - dbt_expectations.expect_table_column_count_to_equal:
+          value: 21
+      - dbt_expectations.expect_table_columns_to_match_set:
+          column_list: [ "uid", "msisdn", "subscriber_type", "customer_type", "last_activity_date",
+                         "status", "dola", "smartphone_ind", "loyalty_id", "loyalty_points_earned",
+                         "loyalty_points_redeemed", "loyalty_points_balance", "preffered_language",
+                         "gender", "consumer_address", "subscriber_birthday", "dob", "age", "active_data",
+                         "commit_timestamp", "commit_version"]
+    columns:
+      - name: uid
+        description: "Unique Customer ID"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: msisdn
+        description: "MSISDN"
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: subscriber_type
+        description: "Price plan - Prepaid or Postpaid"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: customer_type
+        description: "Consumer or Enterprise"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: last_activity_date
+        description: "Last date of any acticvity"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: status
+        description: "Active, dormant, churned, blocked, Would need this at the end of each Period"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: dola
+        description: "Number of consecutive days no activity measured from last known activity. Date of last activity measured in days"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: smartphone_ind
+        description: "Smartphone indicator"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: loyalty_id
+        description: "Applicable if loyalty plan is in place"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: loyalty_points_earned
+        description: "Applicable if loyalty plan is in place"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: loyalty_points_redeemed
+        description: "Applicable if loyalty plan is in place"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: loyalty_points_balance
+        description: "Applicable if loyalty plan is in place"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: preffered_language
+        description: "preffered  language"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: gender
+        description: "Registered Gender"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: consumer_address
+        description: "consumer  address"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: subscriber_birthday
+        description: "subscriber  birthday"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: dob
+        description: "Registered date of birth"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: age
+        description: "age"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: active_data
+        description: "Data usage"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: commit_timestamp
+        description: "Timestamp from change table"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: commit_version
+        description: "Version from change table"
+        tests:
+          - dbt_expectations.expect_column_to_exist
