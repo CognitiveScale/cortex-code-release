@@ -1,8 +1,8 @@
 apiVersion: v3
 kind: PipelineConfig
 metadata:
-  title: "Medallion S3 template"
-  name: medallion_s3 # TODO(LA): Pipeline name needs to be dynamic (based on generate command)
+  title: "Medallion template"
+  name: medallion # TODO(LA): Pipeline name needs to be dynamic (based on generate command)
 spec:
   # Global Variables - defaults for all profiles
   variables:

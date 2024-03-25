@@ -1,0 +1,7 @@
+{
+    "name": "medallion",
+    "title": "Medallion Pipeline Template",
+    "description": "A Pipeline template that implements a medallion architecture",
+    "tags": ["template", "pipelines", "medallion"],
+    "enabled": true
+}
