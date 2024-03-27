@@ -1,5 +1,0 @@
-packages:
-  - package: calogica/dbt_expectations
-    version: 0.8.5
-  - package: dbt-labs/dbt_external_tables
-    version: 0.8.7
