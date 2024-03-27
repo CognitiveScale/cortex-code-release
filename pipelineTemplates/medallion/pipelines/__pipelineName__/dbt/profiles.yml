@@ -1,8 +1,0 @@
-mtn:
-  outputs:
-    dev:
-      host: NA
-      method: session
-      schema: default
-      type: spark
-  target: dev
