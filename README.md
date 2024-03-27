@@ -17,3 +17,5 @@ Templates are identified by the presence of a `metadata.json` within the folder.
 ```
 
 The `resourceType` can be one of: `["Skill", "Pipeline"]`.
+
+:warning: **WARNING: The filename must be exactly `metadata.json`, any other variations will be ignored.**
