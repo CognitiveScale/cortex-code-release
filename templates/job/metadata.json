@@ -3,6 +3,6 @@
     "title": "Custom Job Skill",
     "description": "A Skill template that runs as a Job",
     "tags": ["template", "job"],
-    "enabled": false,
+    "enabled": true,
     "resourceType": "Skill"
 }
