@@ -1,0 +1,24 @@
+version: 2
+models:
+  - name: gold_all
+    description: "Single Gold table model"
+    columns:
+      - name: msisdn
+        description: "MSISDN"
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: customer360
+        description: "Customer 360"
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: struct<customerId:string>
+      - name: customer360.customerId
+        description: "Customer Id"
+        tests:
+          - nested_data_test_wrapper:
+              test: not_null
