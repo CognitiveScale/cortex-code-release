@@ -36,7 +36,7 @@ spec:
     - name: bronze
       title: Bronze From Kafka
       class: Test_Streaming_Bronze_Block
-      package: test_streaming_bronze_block
+      package: bronze
       executor: pyspark
       type: streaming
       inputs:
@@ -54,7 +54,7 @@ spec:
     - name: dbt_silver
       title: DBT Silver And Gold
       class: Test_Streaming_Silver_Block
-      package: test_streaming_silver_block
+      package: silver
       executor: pyspark
       type: dbt
       dbt:
@@ -81,7 +81,7 @@ spec:
     - name: mongo
       title: Mongo Gold
       class: Test_Streaming_Mongo_Block
-      package: test_streaming_mongo_block
+      package: gold
       executor: pyspark
       type: streaming
       inputs:
