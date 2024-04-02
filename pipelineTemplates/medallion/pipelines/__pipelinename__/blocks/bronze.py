@@ -3,23 +3,30 @@ from sensa_data_pipelines.executors.pyspark.mixins.profiles_sdk_mixins import (
     ProfilesSdkMixin,
     DataEndpointProfilesSdkMixin,
 )
-from sensa_data_pipelines.pipeline_model import SensaDataModelConfig, SensaConnectionConfig
+from sensa_data_pipelines.pipeline_model import (
+    SensaDataModelConfig,
+    SensaConnectionConfig,
+)
 from sensa_data_pipelines.executors.pyspark.streaming import StreamingBlock
 
+INPUT_NAME = 'from_kafka'
 
-class Test_Streaming_Bronze_Block(StreamingBlock, ProfilesSdkMixin, DataEndpointProfilesSdkMixin):
+
+class BronzeBlock(StreamingBlock, ProfilesSdkMixin, DataEndpointProfilesSdkMixin):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
     def execute_stream(self, **kwargs) -> StreamingQuery:
-        kafka_connection = self.get_input_config("from_kafka", SensaConnectionConfig)
+        connection = self.get_input_config(INPUT_NAME, SensaConnectionConfig)
         stream_pair = (
-            self.sensa.readStream()
-            .readConnection(kafka_connection.endpoint.project, kafka_connection.endpoint.name)
-            .load()
-        )
-        bronze_model = self.get_output_config("to_bronze", SensaDataModelConfig)
+                self.sensa.readStream()
+                .readConnection(
+                    connection.endpoint.project, connection.endpoint.name
+                    )
+                .load()
+                )
 
+        bronze_model = self.get_output_config("to_bronze", SensaDataModelConfig)
         return (
             stream_pair.getStreamDf()
             .writeStream.format("delta")

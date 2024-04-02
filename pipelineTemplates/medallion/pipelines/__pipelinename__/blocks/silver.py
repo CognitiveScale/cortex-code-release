@@ -3,16 +3,23 @@ from sensa_data_pipelines.executors.pyspark.mixins.profiles_sdk_mixins import (
     DataEndpointProfilesSdkMixin,
     OpenMetadataProfilesSdkMixin,
 )
-from sensa_data_pipelines.executors.pyspark.mixins.pyspark_mixins import PySparkMixin, DbtPySparkMixin
+from sensa_data_pipelines.executors.pyspark.mixins.pyspark_mixins import (
+    PySparkMixin,
+    DbtPySparkMixin,
+)
 from sensa_data_pipelines.integrations.open_metadata.open_metadata_mixin import (
     OpenMetadataJobConfig,
     OpenMetadataJobTypes,
 )
-from sensa_data_pipelines.pipeline_model import SensaDataModelConfig, SensaDataSourceConfig, SensaProfileSchemaConfig
+from sensa_data_pipelines.pipeline_model import (
+    SensaDataModelConfig,
+    SensaDataSourceConfig,
+    SensaProfileSchemaConfig,
+)
 from sensa_data_pipelines.executors.pyspark.streaming import StreamingBlock
 
 
-class Test_Streaming_Silver_Block(
+class SilverBlock(
     StreamingBlock,
     DbtPySparkMixin,
     PySparkMixin,
@@ -26,7 +33,9 @@ class Test_Streaming_Silver_Block(
     def execute(self, **kwargs) -> str:
         bronze_model = self.get_input_config("from_bronze", SensaDataModelConfig)
         data_source = self.get_output_config("to_data_source", SensaDataSourceConfig)
-        profile_schema = self.get_output_config("to_profile_schema", SensaProfileSchemaConfig)
+        profile_schema = self.get_output_config(
+            "to_profile_schema", SensaProfileSchemaConfig
+        )
 
         # TODO infer?
         dbt_vars = dict(
@@ -50,6 +59,8 @@ class Test_Streaming_Silver_Block(
         )
 
         if not run_results.success:
-            self.logger.error("DBT run failed, results have been uploaded to MC and ingested by OM")
+            self.logger.error(
+                "DBT run failed, results have been uploaded to MC and ingested by OM"
+            )
 
         return "ran"

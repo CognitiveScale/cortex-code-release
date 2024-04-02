@@ -34,8 +34,8 @@ spec:
           value: '<REPLACE_ME>'
   blocks:
     - name: bronze
-      title: Bronze From Kafka
-      class: Test_Streaming_Bronze_Block
+      title: Bronze
+      class: BronzeBlock
       package: bronze
       executor: pyspark
       type: streaming
@@ -53,7 +53,7 @@ spec:
               name: bronze
     - name: dbt_silver
       title: DBT Silver And Gold
-      class: Test_Streaming_Silver_Block
+      class: SilverBlock
       package: silver
       executor: pyspark
       type: dbt
@@ -79,8 +79,8 @@ spec:
               project: ${PROJECT}
               name: ${PROFILE_NAME}
     - name: mongo
-      title: Mongo Gold
-      class: Test_Streaming_Mongo_Block
+      title: Gold
+      class: GoldBlock
       package: gold
       executor: pyspark
       type: streaming
