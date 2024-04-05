@@ -33,4 +33,4 @@ spec:
     - name: json/style
       value: lines
     - name: uri
-      value: pipelines/{{pipelineName}}/seeds/data.json
+      value: pipelines/{{pipelinename}}/seeds/data.json
