@@ -11,7 +11,7 @@ spec:
   allowWrite: false
   params:
   - name: uri
-    value: pipelines/{{pipelinename}}/data/data.csv
+    value: pipelines/{{pipelinename}}/seeds/data.csv
   - name: csv/header
     value: true
 ---
@@ -33,4 +33,4 @@ spec:
     - name: json/style
       value: lines
     - name: uri
-      value: pipelines/{{pipelineName}}/data/data.json
+      value: pipelines/{{pipelineName}}/seeds/data.json
