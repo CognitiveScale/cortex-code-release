@@ -1,0 +1,22 @@
+{
+  "payload": {
+    "app_command": [
+      "run",
+      "--pipeline",
+      "{{pipelinename}}",
+      "pipelines",
+      "--profile",
+      "default",
+      "--var",
+      "PROJECT=cortex-project",
+      "--var",
+      "INPUT_CONNECTION_NAME=medallion-connection",
+      "--var",
+      "DATA_SOURCE_NAME=medallion-data-source",
+      "--var",
+      "PROFILE_NAME=medallion-profileschema",
+      "--var",
+      "OPEN_METADATA_TOKEN=XXXXX"
+    ]
+  }
+}
