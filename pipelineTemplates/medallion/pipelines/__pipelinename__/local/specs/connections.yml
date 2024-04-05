@@ -1,30 +1,36 @@
 apiVersion: cognitivescale.io/v1
 kind: Connection
 metadata:
-  name: "local-kafka"
+  name: "local-file"
 spec:
-  title: Kafka Data
-  connectionType: kafkaStream
+  title: Local File
+  description: Local CSV File for the Medallion Pipeline
+  connectionType: file
+  contentType: csv
   allowRead: true
   allowWrite: false
   params:
-    - name: kafka/bootstrap/servers
-      value: localhost:29092
-    - name: subscribe
-      value: user-topic
-    - name: kafka/security/protocol
-      value: SASL_PLAINTEXT
-    - name: kafka/sasl/mechanism
-      value: PLAIN
-    - name: kafka/sasl/jaas/config
-      value: "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"user\" password=\"bitnami\";"
-    - name: startingOffsets
-      value: earliest
-    - name: maxOffsetsPerTrigger
-      value: 5
-    - name: pollInterval
-      value: 10
+  - name: uri
+    value: pipelines/{{pipelinename}}/data/data.csv
+  - name: csv/header
+    value: true
 ---
-# TODO:
-# - Alternative to Kafka??
-# - Alternative to Mongo??
+apiVersion: cognitivescale.io/v1
+kind: Connection
+metadata:
+  name: "local-file-json"
+spec:
+  title: Local JSON File
+  description: Local JSON File for the Medallion Pipeline
+  tags: []
+  connectionType: file
+  contentType: json
+  allowRead: true
+  allowWrite: false
+  params:
+    - name: json/multiline
+      value: "true"
+    - name: json/style
+      value: lines
+    - name: uri
+      value: pipelines/{{pipelineName}}/data/data.json

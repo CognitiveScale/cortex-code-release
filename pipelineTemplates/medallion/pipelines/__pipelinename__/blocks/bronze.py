@@ -9,8 +9,8 @@ from sensa_data_pipelines.pipeline_model import (
 )
 from sensa_data_pipelines.executors.pyspark.streaming import StreamingBlock
 
-INPUT_NAME = 'from_kafka'
-
+INPUT_NAME = "bronze_input"
+OUTPUT_NAME = "to_bronze"
 
 class BronzeBlock(StreamingBlock, ProfilesSdkMixin, DataEndpointProfilesSdkMixin):
     def __init__(self, **kwargs) -> None:
@@ -19,14 +19,12 @@ class BronzeBlock(StreamingBlock, ProfilesSdkMixin, DataEndpointProfilesSdkMixin
     def execute_stream(self, **kwargs) -> StreamingQuery:
         connection = self.get_input_config(INPUT_NAME, SensaConnectionConfig)
         stream_pair = (
-                self.sensa.readStream()
-                .readConnection(
-                    connection.endpoint.project, connection.endpoint.name
-                    )
-                .load()
-                )
+            self.sensa.readStream()
+            .readConnection(connection.endpoint.project, connection.endpoint.name)
+            .load()
+        )
 
-        bronze_model = self.get_output_config("to_bronze", SensaDataModelConfig)
+        bronze_model = self.get_output_config(OUTPUT_NAME, SensaDataModelConfig)
         return (
             stream_pair.getStreamDf()
             .writeStream.format("delta")

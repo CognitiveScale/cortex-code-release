@@ -18,6 +18,8 @@ from sensa_data_pipelines.pipeline_model import (
 )
 from sensa_data_pipelines.executors.pyspark.streaming import StreamingBlock
 
+INPUT_NAME = "from_bronze"
+OUTPUT_NAME = "to_data_source"
 
 class SilverBlock(
     StreamingBlock,
@@ -31,8 +33,8 @@ class SilverBlock(
         super().__init__(**kwargs)
 
     def execute(self, **kwargs) -> str:
-        bronze_model = self.get_input_config("from_bronze", SensaDataModelConfig)
-        data_source = self.get_output_config("to_data_source", SensaDataSourceConfig)
+        bronze_model = self.get_input_config(INPUT_NAME, SensaDataModelConfig)
+        data_source = self.get_output_config(OUTPUT_NAME, SensaDataSourceConfig)
         profile_schema = self.get_output_config(
             "to_profile_schema", SensaProfileSchemaConfig
         )

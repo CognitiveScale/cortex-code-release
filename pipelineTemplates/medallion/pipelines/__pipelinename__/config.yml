@@ -1,13 +1,13 @@
 apiVersion: v3
 kind: PipelineConfig
 metadata:
-  title: "Medallion template"
-  name: medallion # TODO(LA): Pipeline name needs to be dynamic (based on generate command)
+  title: "{{pipelinename}} - Medallion Pipeline Template"
+  name: {{pipelinename}}
 spec:
   # Global Variables - defaults for all profiles
   variables:
     - name: OPEN_METADATA_REST_API
-      value: http://openmetadata.cortex.svc.cluster.local:8585/api" # cluster internal API
+      value: "http://openmetadata.cortex.svc.cluster.local:8585/api" # cluster internal API
     - name: DBT_EXECUTION_STRING
       value: build
   profiles:
@@ -17,20 +17,20 @@ spec:
       variables:
         - name: PROJECT
           value: test-project
-        - name: KAFKA_CONNECTION_NAME
-          value: local-kafka
+        - name: INPUT_CONNECTION_NAME
+          value: local-csv
         - name: DATA_SOURCE_NAME
           value: test-datasource
         - name: PROFILE_NAME
           value: test-profileschema
-        - name: MONGO_CONNECTION_NAME
-          value: local-mongo
         - name: OPEN_METADATA_TOKEN
           value: 'xxxxx'
     # Default profile - for use in a Sensa cluster (use at your own risk).
     - name: default
       variables:
         - name: OPEN_METADATA_TOKEN
+          value: '<REPLACE_ME>'
+        - name: INPUT_CONNECTION_NAME
           value: '<REPLACE_ME>'
   blocks:
     - name: bronze
@@ -40,11 +40,11 @@ spec:
       executor: pyspark
       type: streaming
       inputs:
-        - name: from_kafka
+        - name: bronze_input
           sensa:
             connection:
               project: ${PROJECT}
-              name: ${KAFKA_CONNECTION_NAME}
+              name: ${INPUT_CONNECTION_NAME}
       outputs:
         - name: to_bronze
           sensa:
@@ -52,13 +52,14 @@ spec:
               project: ${PROJECT}
               name: bronze
     - name: dbt_silver
+      # TODO: why do this run both Silver & GOLD - seems a little counterintuitive
       title: DBT Silver And Gold
       class: SilverBlock
       package: silver
       executor: pyspark
       type: dbt
       dbt:
-        projectDir: dbt/mtn
+        projectDir: dbt/{{pipelinename}}
         profileDir: dbt
         runCommand: ${DBT_EXECUTION_STRING}
       inputs:
@@ -78,7 +79,7 @@ spec:
             profile:
               project: ${PROJECT}
               name: ${PROFILE_NAME}
-    - name: mongo
+    - name: gold
       title: Gold
       class: GoldBlock
       package: gold
@@ -91,8 +92,8 @@ spec:
               project: ${PROJECT}
               name: ${PROFILE_NAME}
       outputs:
-        - name: to_mongo_checkpoint
+        - name: to_gold_checkpoint
           sensa:
             model:
               project: ${PROJECT}
-              name: mongo
+              name: gold
