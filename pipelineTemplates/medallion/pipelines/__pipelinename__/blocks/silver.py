@@ -21,6 +21,7 @@ from sensa_data_pipelines.executors.pyspark.streaming import StreamingBlock
 INPUT_NAME = "from_bronze"
 OUTPUT_NAME = "to_data_source"
 
+
 class SilverBlock(
     StreamingBlock,
     DbtPySparkMixin,
@@ -35,11 +36,7 @@ class SilverBlock(
     def execute(self, **kwargs) -> str:
         bronze_model = self.get_input_config(INPUT_NAME, SensaDataModelConfig)
         data_source = self.get_output_config(OUTPUT_NAME, SensaDataSourceConfig)
-        profile_schema = self.get_output_config(
-            "to_profile_schema", SensaProfileSchemaConfig
-        )
-
-        # TODO infer?
+        profile_schema = self.get_output_config("to_profile_schema", SensaProfileSchemaConfig)
         dbt_vars = dict(
             {
                 "bronze-location": bronze_model.paths.location,
@@ -51,18 +48,20 @@ class SilverBlock(
         )
         run_results = self.run_dbt(dbt_vars=dbt_vars)
         self.logger.info("Completed dbt Job")
-        self.logger.info("Running OpenMetadata Job")
-        self.run_open_metadata_job(
-            [
-                OpenMetadataJobConfig(OpenMetadataJobTypes.DELTA_LAKE_INGEST, None),
-                OpenMetadataJobConfig(OpenMetadataJobTypes.DELTA_LAKE_PROFILE, None),
-                OpenMetadataJobConfig(OpenMetadataJobTypes.DBT, None),
-            ]
-        )
-
         if not run_results.success:
-            self.logger.error(
-                "DBT run failed, results have been uploaded to MC and ingested by OM"
-            )
+            self.logger.error("DBT run failed! Results have been uploaded to Managed Content!")
 
+        # TODO: Need to make this conditional based on local vs remote context
+        should_run_om_job = self.variables.get("RUN_OPEN_METADATA_JOB") == "True"
+        if should_run_om_job:
+            self.logger.info("Running OpenMetadata Job")
+            self.run_open_metadata_job(
+                [
+                    OpenMetadataJobConfig(OpenMetadataJobTypes.DELTA_LAKE_INGEST, None),
+                    OpenMetadataJobConfig(OpenMetadataJobTypes.DELTA_LAKE_PROFILE, None),
+                    OpenMetadataJobConfig(OpenMetadataJobTypes.DBT, None),
+                ]
+            )
+        else:
+            self.logger.info("Skipping OpenMetadata Job. Set RUN_OPEN_METDATA_JOB to 'True' to change this behavior.")
         return "ran"

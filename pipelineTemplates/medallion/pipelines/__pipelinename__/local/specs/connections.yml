@@ -1,7 +1,7 @@
 apiVersion: cognitivescale.io/v1
 kind: Connection
 metadata:
-  name: "local-file"
+  name: "local-csv"
 spec:
   title: Local File
   description: Local CSV File for the Medallion Pipeline
@@ -22,7 +22,6 @@ metadata:
 spec:
   title: Local JSON File
   description: Local JSON File for the Medallion Pipeline
-  tags: []
   connectionType: file
   contentType: json
   allowRead: true
@@ -34,3 +33,28 @@ spec:
       value: lines
     - name: uri
       value: pipelines/{{pipelinename}}/seeds/data.json
+---
+apiVersion: cognitivescale.io/v1
+kind: Connection
+metadata:
+  name: "s3-stream-47b19"
+spec:
+  title: Medallion CSV - S3 Stream
+  description: S3FileStream Connnection including
+  connectionType: s3FileStream
+  contentType: csv
+  allowRead: true
+  allowWrite: false
+  params:
+    - name: uri
+      value: s3a://dev-bucket/datasets/data.csv
+    - name: stream_read_dir
+      value: s3a://dev-bucket/datasets/data-empty-folder/
+    - name: publicKey
+      value: "<REPLACE_ME>"
+    - name: secretKey
+      value: '#SECURE.s3-secret'
+    - name: csv/multiline
+      value: "true"
+    - name: csv/header
+      value: "true"

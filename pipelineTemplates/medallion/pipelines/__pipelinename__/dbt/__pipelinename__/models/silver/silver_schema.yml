@@ -6,55 +6,8 @@ sources:
         external:
           location: '{{ var("bronze-location") }}'
           using: delta
-        tests:
-          - dbt_expectations.expect_table_column_count_to_equal:
-              value: 7
-          - dbt_expectations.expect_table_columns_to_match_set:
-              column_list: [ "key", "value", "topic", "partition", "offset",
-                             "timestamp", "timestampType"]
-        columns:
-          - name: key
-            description: "Kafka key"
-            tests:
-              - dbt_expectations.expect_column_to_exist
-              - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: string
-          - name: value
-            description: "Kafka value"
-            tests:
-              - dbt_expectations.expect_column_to_exist
-              - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: string
-          - name: topic
-            description: "Kafka topic"
-            tests:
-              - dbt_expectations.expect_column_to_exist
-              - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: string
-          - name: partition
-            description: "Topic Partition"
-            tests:
-              - dbt_expectations.expect_column_to_exist
-              - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: int
-          - name: offset
-            description: "Offset"
-            tests:
-              - dbt_expectations.expect_column_to_exist
-              - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: bigint
-          - name: timestamp
-            description: "Timestamp"
-            tests:
-              - dbt_expectations.expect_column_to_exist
-              - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: timestamp
-          - name: timestampType
-            description: "Timestamp Type"
-            tests:
-              - dbt_expectations.expect_column_to_exist
-              - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: int
+          # Bronze table could contain additional schema information and column tests
+
 models:
   - name: silver
     config:

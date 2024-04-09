@@ -25,6 +25,8 @@ spec:
           value: test-profileschema
         - name: OPEN_METADATA_TOKEN
           value: 'xxxxx'
+        - name: RUN_OPEN_METADATA_JOB
+          value: "False"
     # Default profile - for use in a Sensa cluster (use at your own risk).
     - name: default
       variables:
@@ -32,6 +34,8 @@ spec:
           value: '<REPLACE_ME>'
         - name: INPUT_CONNECTION_NAME
           value: '<REPLACE_ME>'
+        - name: RUN_OPEN_METADATA_JOB
+          value: "True"
   blocks:
     - name: bronze
       title: Bronze
@@ -51,7 +55,7 @@ spec:
             model:
               project: ${PROJECT}
               name: bronze
-    - name: dbt_silver
+    - name: dbt_silver_gold
       # TODO: why do this run both Silver & GOLD - seems a little counterintuitive
       title: DBT Silver And Gold
       class: SilverBlock
