@@ -3,5 +3,6 @@
     "title": "Custom Daemon Skill",
     "description": "A Skill template that runs as a Daemon",
     "tags": ["template", "daemon"],
-    "enabled": true
+    "enabled": true,
+    "resourceType": "Skill"
 }

@@ -3,5 +3,6 @@
     "title": "Online Prediction Example",
     "description": "An Online Prediction Example",
     "tags": ["example", "prediction", "training", "experiment"],
-    "enabled": true
+    "enabled": true,
+    "resourceType": "Skill"
 }

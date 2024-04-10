@@ -3,5 +3,6 @@
     "title": "Custom External API Skill",
     "description": "A Skill template that runs as an external API",
     "tags": ["template", "api"],
-    "enabled": true
+    "enabled": true,
+    "resourceType": "Skill"
 }
